@@ -1,0 +1,80 @@
+body {
+    background-color: #ccc;
+}
+.calculator-div{
+    height: 600px;
+    width: 450px;
+    margin-left: 70px;
+    margin-top: 50px;
+    padding: 0;
+    background-color: rgb(151, 151, 151);
+    box-shadow: inset 0 0 50px black;
+    border: solid 10px black;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5%;
+}
+
+.input-box{
+    width: 390px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    align-self: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.input-box > button{
+    justify-self: end;
+}
+
+input {
+    width: 250px;
+    padding: 35px 15px;
+    text-align: end;
+    font-size: 45px;
+}
+
+.calculator-buttons{
+    margin-top: 30px;
+    align-self: center;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    width: 390px;
+    padding: 0;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.calculator-button-rows{
+    align-self: center;
+    display: flex;
+    width: 390px;
+    justify-content:space-between;
+    align-items: end;
+}
+
+button {
+    width: 80px;
+    height: 80px;
+    font-size: 35px;
+    border-radius: 50%;
+    border: solid 2px black;
+    color: white;
+}
+
+button:hover{
+    cursor: pointer;
+    opacity: 0.75;
+    transition-duration: 0.15s;
+}
+
+button:not(.operation-button){
+    background-color: rgb(71, 71, 71);
+}
+
+button.operation-button{
+    background-color: rgb(255, 0, 0);
+}
