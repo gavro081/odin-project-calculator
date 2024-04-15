@@ -23,6 +23,7 @@ body {
     align-self: center;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .input-box > button{
@@ -63,6 +64,7 @@ button {
     border-radius: 50%;
     border: solid 2px black;
     color: white;
+    box-shadow: inset 0 0 6px black;
 }
 
 button:hover{
@@ -71,10 +73,27 @@ button:hover{
     transition-duration: 0.15s;
 }
 
-button:not(.operation-button){
+button:not(.action-button){
     background-color: rgb(71, 71, 71);
 }
 
-button.operation-button{
+button.action-button{
     background-color: rgb(255, 0, 0);
 }
+
+
+.currInput-class {
+    position: absolute;
+    top: -8px;
+    color: #8d8d8d;
+    right: 113px;
+    width: 120px;
+    text-align: end;
+    padding: 0;
+}
+/*#current-input {*/
+/*    position: fixed;*/
+/*    top: 100px;*/
+/*    left: 350px;*/
+/*    color: #868686;*/
+/*}*/

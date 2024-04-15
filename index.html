@@ -9,37 +9,44 @@
 <body>
     <div class="calculator-div">
         <div class="input-box">
-            <input type="text" placeholder="1234567" disabled>
-            <button class="operation-button">C</button>
+            <label>
+                <input type="text" placeholder="12345" id="input-box" disabled>
+            </label>
+<!--            sobira 10 cifri vo inputot-->
+                <div class="currInput-class">
+                    <p id="current-input"></p>
+                </div>
+            <button class="action-button" id="clear">C</button>
         </div>
-        
+
         <div class="calculator-buttons">
-                <!-- <button>C</button> -->
             <div class="calculator-button-rows">
                     <button>1</button>
                     <button>2</button>
                     <button>3</button>
-                    <button class="operation-button">+</button>
+                    <button class="action-button operation">+</button>
             </div>
             <div class="calculator-button-rows">
                 <button>4</button>
                 <button>5</button>
                 <button>6</button>
-                <button class="operation-button">-</button>
+                <button class="action-button operation">-</button>
             </div>
             <div class="calculator-button-rows">
                 <button>7</button>
                 <button>8</button>
                 <button>9</button>
-                <button class="operation-button">/</button>
+                <button class="action-button operation">/</button>
             </div>
             <div class="calculator-button-rows">
-                <button class="operation-button">=</button>
+                <button class="action-button" id="equal">=</button>
                 <button>0</button>
-                <button class="operation-button">,</button>
-                <button class="operation-button">&times;</button>
+                <button class="action-button" id="comma">,</button>
+                <button class="action-button operation">&times;</button>
             </div>
         </div>
     </div>
+
+<script src="script.js"></script>
 </body>
 </html>
