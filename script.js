@@ -32,10 +32,10 @@ document.addEventListener('keydown', (e) => {
     }
     else if (e.key === 'Enter') calculate();
     else if (e.key === 'Backspace') clearAll();
-    // else if (e.key === '*') operationSign = '×';
-    // else if (e.key === '-') operationSign = '-';
-    // else if (e.key === '+') operationSign = '+';
-    // else if (e.key === '/') operationSign = '/';
+    else if (e.key === '*' || e.key === '-' || e.key === '+' || e.key === '/'){
+        if (e.key === '*') operate('×');
+        else operate(e.key);
+    }
     else if (e.key === '.') {
         if (!commaON) {
             inputBox.value += '.';
@@ -62,7 +62,6 @@ numButtons.forEach(number => {
     });
 });
 
-
 function addNumber(number){
     if (!operationSign) {
         if (!operand1 || hasCalculated) {
@@ -70,11 +69,8 @@ function addNumber(number){
             hasCalculated = false;
         }
         else operand1 = 10*operand1 + number;
-
         inputBox.value = operand1;
-
         currInput.innerText = operand1;
-
         currOperand = operand1;
         flag = 1;
     }
@@ -88,7 +84,6 @@ function addNumber(number){
         currOperand = operand2;
         flag = 2;
     }
-    // setCurrInput();
 }
 
 function addDecimal(number){
@@ -104,28 +99,31 @@ function addDecimal(number){
     else {
         currInput.innerText = + currOperand + '.' + operandDecimal;
     }
-    // setCurrInput();
 }
 
 operationButtons.forEach(sign => {
     sign.addEventListener("click", () => {
-        if (operandDecimal){
-           makeDecimal();
-        }
-        if (operationSign) {
-            calculate();
-            operationSign = sign.innerText;
-            // setCurrInput();
-        }
-        else if (operand1) {
-            let test = sign.innerText;
-            if (test === '×' || test === '-' || test === '+' || test === '/')
-            operationSign = sign.innerText;
-            setCurrInput();
-        }
-        // setCurrInput();
+        operate(sign.innerText);
+
     });
 });
+
+function operate (sign){
+    if (operandDecimal){
+        makeDecimal();
+    }
+    if (operationSign) {
+        calculate();
+        operationSign = sign;
+        // setCurrInput();
+    }
+    else if (operand1) {
+        let test = sign;
+        if (test === '×' || test === '-' || test === '+' || test === '/')
+            operationSign = sign;
+        setCurrInput();
+    }
+}
 
 function calculate () {
     if (operandDecimal){
