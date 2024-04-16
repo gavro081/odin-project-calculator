@@ -25,16 +25,37 @@ commaButton.addEventListener("click", () => {
     }
 })
 
+let curr;
 document.addEventListener('keydown', (e) => {
     if (Number.isInteger(Number(e.key))){
+        findClickedNumber(Number(e.key));
+        curr.classList.add('clicked');
         if (!commaON) addNumber(Number(e.key));
         else addDecimal(Number(e.key));
     }
-    else if (e.key === 'Enter') calculate();
-    else if (e.key === 'Backspace') clearAll();
+    else if (e.key === 'Enter') {
+        equalButton.classList.add('clicked');
+        calculate();
+    }
+    else if (e.key === 'Backspace') {
+        clearButton.classList.add('clicked');
+        clearAll();
+    }
     else if (e.key === '*' || e.key === '-' || e.key === '+' || e.key === '/'){
-        if (e.key === '*') operate('×');
-        else operate(e.key);
+        switch (e.key){
+            case "*": document.querySelector('#multiply').classList.add('clicked')
+                operate('×');
+                break;
+            case "+":document.querySelector('#plus').classList.add('clicked');
+                operate(e.key);
+                break;
+            case "-":document.querySelector('#minus').classList.add('clicked');
+                operate(e.key);
+                break;
+            case "/":document.querySelector('#divide').classList.add('clicked');
+                operate(e.key);
+                break;
+        }
     }
     else if (e.key === '.') {
         if (!commaON) {
@@ -42,6 +63,10 @@ document.addEventListener('keydown', (e) => {
             commaON = true;
         }
     }
+})
+
+document.addEventListener('keyup', () => {
+    document.querySelector('.clicked').classList.remove('clicked');
 })
 
 function clearAll(){
@@ -174,4 +199,28 @@ function makeDecimal() {
     flag = 0;
     operandDecimal = null;
     commaON = false;
+}
+function findClickedNumber(num){
+    switch (num){
+        case 0: curr = document.querySelector('#zero')
+            break;
+        case 1: curr = document.querySelector('#one')
+            break;
+        case 2: curr = document.querySelector('#two')
+            break;
+        case 3: curr = document.querySelector('#three')
+            break;
+        case 4: curr = document.querySelector('#four')
+            break;
+        case 5: curr = document.querySelector('#five')
+            break;
+        case 6: curr = document.querySelector('#six')
+            break;
+        case 7: curr = document.querySelector('#seven')
+            break;
+        case 8: curr = document.querySelector('#eight')
+            break;
+        case 9: curr = document.querySelector('#nine')
+            break;
+    }
 }

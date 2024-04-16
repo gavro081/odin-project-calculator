@@ -70,7 +70,13 @@ button {
 button:hover{
     cursor: pointer;
     opacity: 0.75;
-    transition-duration: 0.15s;
+    /*transition-duration: 0.15s;*/
+    border:solid 4px black;
+}
+
+.clicked{
+    opacity: 0.75;
+    border:solid 4px black;
 }
 
 button:not(.action-button){
@@ -81,7 +87,6 @@ button.action-button{
     background-color: rgb(255, 0, 0);
 }
 
-
 .currInput-class {
     position: absolute;
     top: -8px;
@@ -91,9 +96,3 @@ button.action-button{
     text-align: end;
     padding: 0;
 }
-/*#current-input {*/
-/*    position: fixed;*/
-/*    top: 100px;*/
-/*    left: 350px;*/
-/*    color: #868686;*/
-/*}*/
